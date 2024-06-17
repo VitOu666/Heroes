@@ -1,9 +1,23 @@
-
+import React, { useState, useEffect } from 'react';
 import './App.css'
-import HeroCard from'./Components/HeroCard'
-import  data  from './assets/data'
+import HeroList from'./Components/HeroList'
+import  data  from './assets/data1.json'
 
-export default function App() {
+const App = () => {
+  const [heroes, setUsers] = useState([]);
+  useEffect(() => {setUsers(data);
+}, []);
+
+return (
+  <div>
+    <h1>SuperHeroes</h1>
+    <HeroList heroes={heroes}/>
+  </div>
+);
+};
+export default App;
+
+/*export default function App() {
   return (
     <main>
       <div>
@@ -22,5 +36,4 @@ export default function App() {
         <HeroCard {...data[9]} />
       </div>
     </main>
-  )
-}
+  );*/
